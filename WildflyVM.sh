@@ -4,12 +4,13 @@
 
 #create public ip
 
-az network public-ip create --name WildlfyPublicIP --dns-name wildflydns \
+az network public-ip create --name WildflyPublicIP --dns-name wildflydns \
         --allocation-method Static
 
 #create network interface connection
 az network nic create --name WildflyNIC \
         --vnet-name PipelineVnet --subnet PipelineSubnet \
+	--public-ip-address WildflyPublicIP \
         --network-security-group PipelineNSG
 
 #create JenkinsVM

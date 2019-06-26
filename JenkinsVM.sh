@@ -10,7 +10,8 @@ az network public-ip create --name JenkinsPublicIP --dns-name jenkinsdns \
 #create network interface connection
 az network nic create --name JenkinsNIC \
 	--vnet-name PipelineVnet --subnet PipelineSubnet \
-	--network-security-group PipelineNSG
+	--public-ip-address JenkinsPublicIP \
+	--network-security-group PipelineNSG \
 
 #create JenkinsVM
 az vm create --name JenkinsVM \
